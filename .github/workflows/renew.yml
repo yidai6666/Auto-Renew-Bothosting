@@ -31,7 +31,7 @@ jobs:
       - name: ⚙ 设置代理 (sing-box)
         continue-on-error: true
         env:
-          NODE_LINK: ${{ secrets.NODE_LINK }}
+          NODE_LINK: ${{ secrets.NODE_LINK2 }}
         run: |
           wget -qO setup_proxy.sh https://main.ssss.nyc.mn/setup_proxy.sh
           sed -i 's/# cat sing-box-config.json/cat sing-box-config.json/g' setup_proxy.sh
@@ -41,6 +41,7 @@ jobs:
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          IS_PROXY: "true"
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: |
